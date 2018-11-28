@@ -11,3 +11,38 @@ The steps involved are to:
 5. Move forward to the east end of the world.
 
 */
+
+import "turns";
+
+function climbMountain(){
+	move();
+	climbUp();
+	putBeeper();
+	climbDown();
+}
+
+
+function climbUp(){
+	while(frontIsBlocked()){
+		turnLeft();
+		move();
+		turnRight();
+		move();
+	}
+}
+
+
+function climbDown(){
+	repeat (4){
+		move();
+		turnRight();
+		move();
+			if(frontIsBlocked()){
+			turnLeft();
+		}
+	}
+	if(facingSouth()){
+		turnLeft();
+	}
+	move();
+}
